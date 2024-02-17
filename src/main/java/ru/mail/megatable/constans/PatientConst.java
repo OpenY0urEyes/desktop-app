@@ -1,4 +1,4 @@
-package ru.mail.megatable.consts;
+package ru.mail.megatable.constans;
 
 public class PatientConst {
     public static final String TABLE_NAME = "patient";

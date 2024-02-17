@@ -134,7 +134,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Назад">
+      <Button alignment="CENTER" onAction="#backScene" contentDisplay="CENTER" mnemonicParsing="false" text="Назад">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>

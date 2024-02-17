@@ -15,6 +15,7 @@ module ru.mail.megatable {
 
     opens ru.mail.megatable to javafx.fxml;
     exports ru.mail.megatable;
+    opens ru.mail.megatable.models to javafx.base;
     exports ru.mail.megatable.controllers;
     opens ru.mail.megatable.controllers to javafx.fxml;
 }

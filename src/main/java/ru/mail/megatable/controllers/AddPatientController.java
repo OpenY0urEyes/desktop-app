@@ -1,10 +1,14 @@
 package ru.mail.megatable.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import ru.mail.megatable.database.AddPatient;
 import ru.mail.megatable.database.DbHendler;
+import ru.mail.megatable.database.ExistsPatient;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +16,18 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 
 public class AddPatientController {
+
+    private Scene backScene;
+
+    private Stage stage;
+
+    public void setBackScene(Scene backScene) {
+        this.backScene = backScene;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     @FXML
     private Label day;
@@ -45,12 +61,6 @@ public class AddPatientController {
     private DatePicker birthday;
 
 
-
-
-
-
-
-
     @FXML
     public void onClickAddPatient() throws SQLException, ClassNotFoundException {
         String firstname_text = firstname.getText().trim();
@@ -63,8 +73,9 @@ public class AddPatientController {
         String polic_text = polic.getText().trim();
         String email_text = email.getText().trim();
         LocalDate birthday_text = birthday.getValue();
-        DbHendler dbHendler = new DbHendler();
-        ResultSet resultSet = dbHendler.existsPatient(firstname_text, lastname_text, middlename_text, numberPhone_text, email_text, numberPhone_text, passport_text);
+        AddPatient addPatient = new AddPatient();
+        ExistsPatient existsPatient = new ExistsPatient();
+        ResultSet resultSet = existsPatient.existsPatient(firstname_text, lastname_text, middlename_text, numberPhone_text, email_text, numberPhone_text, passport_text);
         int counter = 0;
         while (true){
             try {
@@ -79,7 +90,7 @@ public class AddPatientController {
                 warning.setText("Введеные данные уже существуют");
             }
             else {
-                dbHendler.addPatient(firstname_text,lastname_text,middlename_text,numberPhone_text,email_text,numberPhone_text,passport_text,sex_text,birthday_text,adress_text);
+                addPatient.addPatient(firstname_text,lastname_text,middlename_text,numberPhone_text,email_text,numberPhone_text,passport_text,sex_text,birthday_text,adress_text);
             }
         }
         catch (RuntimeException e) {
@@ -89,5 +100,11 @@ public class AddPatientController {
             System.out.println("Ошибка - " + e.getMessage());
         }
 
+    }
+
+
+    @FXML
+    public void backScene() throws SQLException, ClassNotFoundException {
+        stage.setScene(backScene);
     }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="ru.mail.megatable.controllers.MainController">
+   <children>
+      <Button mnemonicParsing="false" onAction="#schduleDay" prefHeight="90.0" prefWidth="165.0" text="Расписание на день">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="40.0" right="40.0" top="30.0" />
+         </HBox.margin>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#addPatient" prefHeight="90.0" prefWidth="165.0" text="Добавить пациента">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="40.0" right="40.0" top="30.0" />
+         </HBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#changeSchedule" fx:id="changeSchedule" prefHeight="90.0" prefWidth="165.0" text="Изменить расписание">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="40.0" right="40.0" top="30.0" />
+         </HBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="165.0" text="Выдать направление">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="40.0" right="40.0" top="30.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+</HBox>
